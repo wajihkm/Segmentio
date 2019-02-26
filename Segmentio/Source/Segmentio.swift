@@ -91,6 +91,11 @@ open class Segmentio: UIView {
         collectionView.backgroundColor = .clear
         collectionView.accessibilityIdentifier = "segmentio_collection_view"
         
+        // RTL fix issue
+        if #available(iOS 9.0, *) {
+            collectionView.semanticContentAttribute = .forceLeftToRight
+        }
+        
         segmentioCollectionView = collectionView
         
         if let segmentioCollectionView = segmentioCollectionView {
